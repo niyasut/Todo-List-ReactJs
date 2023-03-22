@@ -4,14 +4,15 @@ import AddTask from "./AddTask";
 import ListTask from "./ListTask";
 import "./Todo.css";
 
-  const Todo = () => {
-  const [tasks, setTasks] = useState([
-  ]);
-  const addTask =(title)=> 
-  { const newTask = [...tasks, {title}];
-   setTasks(newTask)
+const Todo = () => {
+  const [tasks, setTasks] = useState([]);
 
-  }
+
+  
+  const addTask = (title) => {
+    const newTask = [...tasks, { title }];
+    setTasks(newTask);
+  };
   return (
     <>
       <div className="todo-container">
@@ -19,16 +20,14 @@ import "./Todo.css";
         <div className="add-task">
           <AddTask addTask={addTask} />
         </div>
-        <div className="tasks" >
-
+        <div className="tasks">
           {tasks.map((task) => (
-           
             <ListTask task={task} key={task.key} />
           ))}
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Todo;
